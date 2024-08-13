@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Raleway", "Arial", sans-serif;
-  color: #ffff;
   scroll-behavior: smooth;
 }
 
@@ -28,8 +27,11 @@ button {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url(./img/content-main.jpeg) bottom center/100% no-repeat;
-  filter: blur(6px) grayscale(50%) brightness(50%);
+  /* background: url(./img/content-main.jpeg) bottom center/100% no-repeat; */
+  background: url(https://optim.tildacdn.com/tild6464-6234-4565-a164-373837366163/-/format/webp/bg.png)
+    center center/100% no-repeat;
+  /* filter: blur(6px) grayscale(50%) brightness(50%); */
+  filter: brightness(70%);
   z-index: -1;
 }
 /*  */
@@ -42,16 +44,21 @@ button {
   width: 100%;
   /*  */
   width: 1119px;
+  width: 80em;
+  /* width: 1200px; */
   /*  */
   height: 10vh;
-  padding-top: 20px;
+  padding-top: 30px;
+  /* padding-top: 30px; */
+  /* padding-top: 40px; */
+  /* margin-top: 40px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   /* background-color: rgba(0, 0, 0, 0.9); */
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 .header__left {
@@ -181,6 +188,7 @@ button {
 .right__telephone {
   position: relative;
   transition: color 0.5s;
+  color: #ffff;
   text-decoration: none;
 }
 
@@ -259,6 +267,7 @@ button {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  color: #ffff;
 }
 
 .content__info::before {
@@ -274,6 +283,10 @@ button {
 .info__overlay {
   margin: auto 0;
   background-color: rgba(161, 161, 161, 0.5);
+  /*  */
+  background-color: rgba(161, 161, 161, 0.3);
+
+  /*  */
   padding: 30px 40px;
   border-radius: 20px;
 }
@@ -302,6 +315,7 @@ h1 span {
   border-radius: 10px;
   font-size: 15px;
   font-weight: 700;
+  color: #ffff;
   background-color: #0099d4;
   transition: color 0.5s, background-color 0.5s;
 }
@@ -355,6 +369,7 @@ h1 span {
   width: 100%;
   /*  */
   width: 1119px;
+  width: 1200px;
   /*  */
   height: 100vh;
   display: flex;
@@ -373,8 +388,6 @@ h1 span {
   height: 52%;
   /*  */
   display: flex;
-
-  /* background-color: yellow; */
 }
 
 .upper__left {
@@ -425,8 +438,6 @@ h1 span {
   /*  */
   padding-top: 9em;
   /*  */
-
-  /* background-color: teal; */
 }
 
 .down__market,
@@ -467,6 +478,180 @@ h1 span {
   color: black;
 }
 
+.content__services {
+  width: 100%;
+  width: 1200px;
+  height: 100vh;
+  color: #ffff;
+  color: black;
+  margin: 0 auto;
+}
+
+.content__services > h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.content__services > h3 {
+  padding-top: 40px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.content__services > h3 > span {
+  font-weight: 700;
+}
+
+.services__set {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.set-btn {
+  position: relative;
+  width: 360px;
+  /* width: 33.33%; */
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 auto;
+  padding: 0 30px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 650;
+  color: #ffff;
+  transition: transform 0.2s;
+  z-index: 0;
+}
+
+.set-btn::before {
+  border-radius: 10px;
+}
+
+.set-btn:hover {
+  transform: scale(1.05);
+}
+
+.set-btn > p {
+  width: 240px;
+  padding-top: 110px;
+  text-align: left;
+}
+
+.services__sea-freight > p {
+  width: 200px;
+}
+
+.services__warehousing-services > p {
+  width: 130px;
+}
+
+.services__oversized-cargoes-transportation > p > span {
+  display: block;
+  width: 255px;
+}
+
+.services__sea-freight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://optim.tildacdn.com/tild3962-3135-4561-a635-656566323666/-/cover/432x336/center/center/-/format/webp/image.png)
+    center center/100% no-repeat;
+  filter: brightness(40%) contrast(80%);
+  z-index: -1;
+}
+
+.services__railway-freight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://optim.tildacdn.com/tild6530-3938-4464-b666-646639633562/-/cover/432x336/center/center/-/format/webp/noroot.jpg)
+    center center/100% no-repeat;
+  filter: brightness(40%) contrast(80%);
+  z-index: -1;
+}
+
+.services__air-freight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://optim.tildacdn.com/tild3861-3564-4766-a566-633937653135/-/cover/432x336/center/center/-/format/webp/noroot.jpg)
+    center center/100% no-repeat;
+  filter: brightness(40%) contrast(80%);
+  z-index: -1;
+}
+
+.services__road-freight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://optim.tildacdn.com/tild3264-3964-4535-a139-363664616536/-/cover/432x336/center/center/-/format/webp/image.png)
+    center center/100% no-repeat;
+  filter: brightness(40%) contrast(80%);
+  z-index: -1;
+}
+
+.services__oversized-cargoes-transportation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://optim.tildacdn.com/tild6236-6363-4535-b036-633136323230/-/cover/432x336/center/center/-/format/webp/noroot.jpg)
+    center top/110% no-repeat;
+  filter: brightness(40%) contrast(80%);
+  z-index: -1;
+}
+
+.services__warehousing-services::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://optim.tildacdn.com/tild3735-3735-4165-b033-356133346433/-/cover/432x336/center/center/-/format/webp/image.png)
+    center center/100% no-repeat;
+  filter: brightness(40%) contrast(80%);
+  z-index: -1;
+}
+
+.services__sea-freight,
+.services__railway-freight,
+.services__air-freight {
+  margin-bottom: 40px;
+}
+
+.services__railway-freight,
+.services__oversized-cargoes-transportation {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.arrow-right-svg {
+  width: auto;
+  height: 40px;
+  padding-top: 10px;
+}
+
 /*  */
 /* FOOTER */
 /*  */
@@ -479,5 +664,6 @@ h1 span {
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  color: #ffff;
   background-color: rgba(0, 0, 0, 0.9);
 }
