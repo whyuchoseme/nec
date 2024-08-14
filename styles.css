@@ -7,6 +7,10 @@
   scroll-behavior: smooth;
 }
 
+/* html {
+  scrollbar-gutter: stable;
+} */
+
 button {
   cursor: pointer;
 }
@@ -14,11 +18,9 @@ button {
 .wrapper {
   width: 100%;
   height: 100%;
-  /*  */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*  */
 }
 
 /*  */
@@ -49,9 +51,6 @@ button {
   /*  */
   height: 10vh;
   padding-top: 30px;
-  /* padding-top: 30px; */
-  /* padding-top: 40px; */
-  /* margin-top: 40px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -64,10 +63,7 @@ button {
 .header__left {
   width: 25%;
   height: 100%;
-  background: url(./img/logo-header.svg) center right/250px 70px no-repeat;
-  /*  */
   background: url(./img/logo-header.svg) center left/250px 70px no-repeat;
-  /*  */
   cursor: pointer;
 }
 
@@ -185,7 +181,7 @@ button {
 .center__rate,
 .center__career,
 .center__contact,
-.right__telephone {
+.right__phone {
   position: relative;
   transition: color 0.5s;
   color: #ffff;
@@ -219,7 +215,7 @@ button {
 .center__rate:hover,
 .center__career:hover,
 .center__contact:hover,
-.right__telephone:hover {
+.right__phone:hover {
   color: #0098d4;
 }
 
@@ -240,7 +236,7 @@ button {
   /*  */
 }
 
-.right__telephone {
+.right__phone {
   font-size: 16px;
   background-color: transparent;
 }
@@ -249,15 +245,15 @@ button {
 /* MAIN */
 /*  */
 
-.content {
-  /* position: relative;
+/* .content {
+  position: relative;
   width: 100%;
   height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; */
-}
+  align-items: center;
+} */
 
 .content__info {
   position: relative;
@@ -270,15 +266,15 @@ button {
   color: #ffff;
 }
 
-.content__info::before {
-  /* content: "";
+/* .content__info::before {
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   background: url(./img/content-main.jpeg) bottom center/100% no-repeat;
   filter: blur(6px) grayscale(80%);
-  z-index: -1; */
-}
+  z-index: -1;
+} */
 
 .info__overlay {
   margin: auto 0;
@@ -496,6 +492,7 @@ h1 span {
   padding-top: 40px;
   font-size: 18px;
   font-weight: 500;
+  animation: from-left 0.7s forwards;
 }
 
 .content__services > h3 > span {
@@ -653,6 +650,210 @@ h1 span {
 }
 
 /*  */
+/* OVERLAY & MODAL */
+/*  */
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 110, 255, 0.25);
+  z-index: 1;
+}
+
+.modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 11px 12px 0 0;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.cross-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 926px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px 13px 13px 10px;
+  background-color: #ffff;
+  z-index: 3;
+}
+
+.modal-air {
+  height: 496px;
+}
+
+.modal-oversized {
+  height: 450px;
+}
+
+.modal__left {
+  width: 525px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 44px;
+  padding-left: 28px;
+}
+
+.modal__left-air {
+  width: 446px;
+}
+
+.modal__left-oversized,
+.modal__left-warehousing {
+  width: 484px;
+}
+
+.modal__title {
+  width: 448px;
+  height: 96px;
+  font-size: 40px;
+  font-weight: 700;
+  user-select: none;
+  animation: from-left 0.7s forwards;
+}
+
+.modal__sea-title,
+.modal__warehousing-services-title {
+  height: 48px;
+}
+
+.modal__ul {
+  margin-bottom: 14px;
+  animation: from-left 0.7s forwards;
+}
+
+.ul-sea {
+  margin-bottom: 40px;
+}
+
+.ul-oversized {
+  margin-bottom: 5px;
+}
+
+.ul-warehousing {
+  margin-bottom: 65px;
+}
+
+.modal__ul > li {
+  margin-top: 5px;
+  margin-left: 20px;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+.ul-sea > li {
+  width: 428px;
+}
+
+.ul-railway > li {
+  width: 441px;
+}
+
+.ul-air > li {
+  width: 405px;
+}
+
+.ul-road > li {
+  width: 453px;
+}
+
+.ul-oversized > li {
+  width: 401px;
+}
+
+.ul-warehousing > li {
+  width: 388px;
+}
+
+.modal__left > button {
+  margin-bottom: 30px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffff;
+  background-color: #0099d4;
+  transition: background-color 0.5s;
+  animation: from-bottom 0.7s forwards;
+}
+
+.modal__left > button:hover {
+  background-color: #0053a1;
+  transition: background-color 0.5s;
+}
+
+.modal__right-sea {
+  width: 401px;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  background: url(https://optim.tildacdn.com/tild3462-6566-4564-a666-303331653736/-/cover/480x480/center/center/-/format/webp/photo.png)
+    center/100% 100% no-repeat;
+  animation: from-right 0.7s forwards;
+}
+
+.modal__right-railway {
+  width: 401px;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  background: url(https://optim.tildacdn.com/tild6334-3030-4933-a639-643264623661/-/cover/480x480/left/center/-/format/webp/train.jpeg)
+    center/100% 100% no-repeat;
+  animation: from-right 0.7s forwards;
+}
+
+.modal__right-air {
+  width: 480px;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  background: url(https://optim.tildacdn.com/tild6137-6530-4737-a366-323438393336/-/cover/480x496/center/center/-/format/webp/air.jpeg)
+    center/100% 100% no-repeat;
+  animation: from-right 0.7s forwards;
+}
+
+.modal__right-road {
+  width: 401px;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  background: url(https://optim.tildacdn.com/tild6132-6264-4530-a637-623166306162/-/cover/480x480/center/center/-/format/webp/image_6.png)
+    center/100% 100% no-repeat;
+  animation: from-right 0.7s forwards;
+}
+
+.modal__right-oversized {
+  width: 442px;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  background: url(https://optim.tildacdn.com/tild6531-3362-4065-b037-313130373433/-/cover/442x450/center/center/-/format/webp/noroot.jpg)
+    left/150% 100% no-repeat;
+  animation: from-right 0.7s forwards;
+}
+
+.modal__right-warehousing {
+  width: 442px;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  background: url(https://optim.tildacdn.com/tild3230-6463-4432-b365-323663383036/-/cover/442x450/center/center/-/format/webp/image_6_2.png)
+    center/100% 100% no-repeat;
+  animation: from-right 0.7s forwards;
+}
+
+/*  */
 /* FOOTER */
 /*  */
 
@@ -666,4 +867,90 @@ h1 span {
   font-size: 14px;
   color: #ffff;
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+/*  */
+/* ANIMATIONS */
+/*  */
+
+@keyframes from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes from-left-reverse {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+@keyframes from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes from-right-reverse {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+@keyframes from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes from-bottom-reverse {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
