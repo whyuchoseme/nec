@@ -1,4 +1,9 @@
-import { createModal } from "./utils/utils.js";
+import {
+  createModal,
+  createPhoneNumber,
+  hiddenMask,
+  showMask,
+} from "./utils/utils.js";
 
 /*  */
 /* HEADER */
@@ -33,6 +38,15 @@ const foreignEconomicActivity = document.querySelector(
 );
 const consulting = document.querySelector(".cards__consulting");
 const customsClearance = document.querySelector(".cards__customsClearance");
+
+/*  */
+/* FOOTER */
+/*  */
+
+const FooterChexbox = document.querySelector(".checkbox");
+const FooterInputName = document.querySelector(".input-name");
+const FooterInputPhone = document.querySelector(".input-phone");
+const FooterInputConfirm = document.querySelector(".input-form__btn");
 
 /*  */
 /* INTERACTION */
@@ -535,3 +549,64 @@ customsClearance.addEventListener("click", () => {
   modalRight.classList.add("modal__right-customs", "modal__right");
   document.querySelector(".modal").append(modalRight);
 });
+
+/*  */
+/* FOOTER */
+/*  */
+
+const mask = IMask(FooterInputPhone, {
+  mask: "+{7} (000) 000-00-00",
+  placeholderChar: "_",
+});
+
+let trueNumber = 0;
+
+FooterInputPhone.addEventListener("click", () => {
+  showMask(mask);
+});
+
+FooterInputConfirm.addEventListener("click", () => {
+  if (
+    FooterChexbox.checked &&
+    FooterInputName.value.length &&
+    FooterInputPhone.value.replace(/[_-]/g, "").length === 16
+  ) {
+    alert(
+      `Your Name: ${FooterInputName.value}\nYour Phone Number: ${FooterInputPhone.value}`
+    );
+    // Для отправки настоящего номера на почту организации
+    trueNumber = createPhoneNumber(FooterInputPhone.value);
+    //
+    restoreAllInput();
+    hiddenMask(mask);
+  } else {
+    if (!FooterInputName.value.length) {
+      FooterInputName.classList.add("add-border");
+    } else {
+      FooterInputName.classList.remove("add-border");
+    }
+
+    if (FooterInputPhone.value.replace(/[_-]/g, "").length !== 16) {
+      FooterInputPhone.classList.add("add-border");
+    } else {
+      FooterInputPhone.classList.remove("add-border");
+    }
+
+    if (!FooterChexbox.checked) {
+      FooterChexbox.parentElement.classList.add("add-border");
+    } else {
+      FooterChexbox.parentElement.classList.remove("add-border");
+    }
+
+    alert("Вы заполнили не все поля, обязательные к заполнению");
+  }
+});
+
+function restoreAllInput() {
+  FooterInputName.value = "";
+  FooterInputPhone.value = "";
+  FooterChexbox.checked = false;
+  FooterInputName.classList.remove("add-border");
+  FooterInputPhone.classList.remove("add-border");
+  FooterChexbox.parentElement.classList.remove("add-border");
+}

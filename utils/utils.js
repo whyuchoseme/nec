@@ -51,3 +51,28 @@ function overlayOff(divWithContent, overlay) {
     overlay.remove();
   }, 300);
 }
+
+export function createPhoneNumber(numbers) {
+  let trueNumber = "xxxxxxxxxxxx";
+  for (let i = 0; i < numbers.length; i++) {
+    if (Number(numbers[i]) || numbers[i] == "+")
+      trueNumber = trueNumber.replace("x", numbers[i]);
+  }
+
+  return trueNumber;
+}
+
+export function showMask(mask) {
+  mask.updateOptions({
+    lazy: false,
+  });
+  mask.alignCursor();
+}
+
+export function hiddenMask(mask) {
+  mask.value = "";
+  mask.updateOptions({
+    lazy: true,
+  });
+}
+
