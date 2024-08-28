@@ -13,7 +13,7 @@ export function createModal(divWithContent, modalClassName) {
 
   const closeModal = document.createElement("button");
   closeModal.classList.add("modal__close");
-  closeModal.innerHTML = `<img class="cross-svg" src="./img/cross.svg" alt="cross" />`;
+  closeModal.innerHTML = `<img class="cross-svg" src="../img/cross.svg" alt="cross" />`;
   overlay.append(closeModal);
 
   closeModal.addEventListener("click", () => {
@@ -91,7 +91,7 @@ export function createModalFeedback(divWithContent) {
 
   const closeModal = document.createElement("button");
   closeModal.classList.add("modal-feedback__close");
-  closeModal.innerHTML = `<img class="cross-svg" src="./img/cross.svg" alt="cross" />`;
+  closeModal.innerHTML = `<img class="cross-svg" src="../img/cross.svg" alt="cross" />`;
   overlay.append(closeModal);
 
   closeModal.addEventListener("click", () => {
@@ -153,12 +153,7 @@ export function createModalFeedback(divWithContent) {
         />
       </div>
       <div class="input-feedback-form__text">
-        <input
-          class="input-feedback-text"
-          type="text"
-          id="input-feedback-text"
-          placeholder="Описание задачи"
-        />
+      <textarea class="input-feedback-text" name="input-feedback-text" rows="6" cols="40" placeholder="Описание задачи" spellcheck="true"></textarea>
       </div>
       <div class="input-feedback-form__checkbox">
         <input class="checkbox-feedback" type="checkbox" id="confirm-feedback" />
@@ -187,6 +182,7 @@ export function createModalFeedback(divWithContent) {
   const feedbackInputPhone = document.querySelector(".input-feedback-phone");
   const feedbackInputEmail = document.querySelector(".input-feedback-email");
   const feedbackInputText = document.querySelector(".input-feedback-text");
+  const feedbackInputTextHeight = feedbackInputText.offsetHeight;
   const feedbackCheckbox = document.querySelector(".checkbox-feedback");
   const feedbackInputConfirm = document.querySelector(
     ".modal-feedback__button"
@@ -201,6 +197,10 @@ export function createModalFeedback(divWithContent) {
 
   feedbackInputPhone.addEventListener("click", () => {
     showMask(maskFeedback);
+  });
+
+  feedbackInputText.addEventListener("focusout", () => {
+    feedbackInputText.style.height = feedbackInputTextHeight + "px";
   });
 
   feedbackInputConfirm.addEventListener("click", () => {
@@ -230,11 +230,13 @@ export function createModalFeedback(divWithContent) {
       } else {
         feedbackInputName.classList.remove("add-border");
       }
+
       if (!feedbackInputEmail.value.length) {
         feedbackInputEmail.classList.add("add-border");
       } else {
         feedbackInputEmail.classList.remove("add-border");
       }
+
       if (!feedbackInputText.value.length) {
         feedbackInputText.classList.add("add-border");
       } else {
@@ -262,6 +264,7 @@ export function createModalFeedback(divWithContent) {
     feedbackInputPhone.value = "";
     feedbackInputEmail.value = "";
     feedbackInputText.value = "";
+    feedbackInputText.style.height = feedbackInputTextHeight + "px";
     feedbackCheckbox.checked = false;
     feedbackInputName.classList.remove("add-border");
     feedbackInputPhone.classList.remove("add-border");
@@ -272,20 +275,23 @@ export function createModalFeedback(divWithContent) {
 }
 
 function overlayFeedbackOn(divWithContent) {
-  // const scrollbarWidth =
-  //   window.innerWidth - document.documentElement.clientWidth; // Высчитывание длинны скроллбара, чтобы при дальнейшем скрытии контент не сдвигался
-  // document.body.style.marginRight = scrollbarWidth + "px";
-  // document.body.style.overflowY = "hidden";
+  if (!document.querySelector(".overlay")) {
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth; // Высчитывание длинны скроллбара, чтобы при дальнейшем скрытии контент не сдвигался
+    document.body.style.marginRight = scrollbarWidth + "px";
+  }
+  document.body.style.overflowY = "hidden";
   divWithContent.style.filter = "blur(4px)";
 }
 
 function overlayFeedbackOff(divWithContent, overlay) {
   overlay.style.animation = "fadeout 0.4s forwards";
+  overlay.style.overflowY = "hidden";
   divWithContent.style.filter = "none";
+  document.body.style.marginRight = 0;
+  document.body.style.overflowY = "visible";
 
   setTimeout(() => {
-    // document.body.style.marginRight = 0;
-    // document.body.style.overflowY = "visible";
     overlay.remove();
   }, 300);
 }
@@ -293,9 +299,6 @@ function overlayFeedbackOff(divWithContent, overlay) {
 function closeLastModal(modal) {
   if (document.querySelector(".overlay")) {
     modal.style.animationDuration = "0.3s";
-    document.body.style.marginRight = 0;
-    document.body.style.overflowY = "visible";
-    document.querySelector(".content").style.filter = "none";
     document.querySelector(".overlay").remove();
   }
 }
