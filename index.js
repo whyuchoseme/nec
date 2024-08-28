@@ -1,5 +1,6 @@
 import {
   createModal,
+  createModalFeedback,
   createPhoneNumber,
   hiddenMask,
   showMask,
@@ -12,6 +13,13 @@ import {
 const content = document.querySelector(".content");
 const reload = document.querySelector(".header__left");
 const phoneButton = document.querySelector(".right__phone");
+const transportServices = document.querySelector(".rate__transport-services");
+
+/*  */
+/* ABOUT */
+/*  */
+
+const contentButton = document.querySelector(".content__btn");
 
 /*  */
 /* SERVICES */
@@ -43,10 +51,10 @@ const customsClearance = document.querySelector(".cards__customsClearance");
 /* FOOTER */
 /*  */
 
-const FooterChexbox = document.querySelector(".checkbox");
-const FooterInputName = document.querySelector(".input-name");
-const FooterInputPhone = document.querySelector(".input-phone");
-const FooterInputConfirm = document.querySelector(".input-form__btn");
+const footerInputName = document.querySelector(".input-name");
+const footerInputPhone = document.querySelector(".input-phone");
+const footerCheckbox = document.querySelector(".checkbox");
+const footerInputConfirm = document.querySelector(".input-form__btn");
 
 /*  */
 /* INTERACTION */
@@ -63,6 +71,18 @@ reload.addEventListener("click", () => {
 
 phoneButton.addEventListener("click", () => {
   window.open("tel:+74955325212", "_blank");
+});
+
+transportServices.addEventListener("click", () => {
+  createModalFeedback(content);
+});
+
+/*  */
+/* ABOUT */
+/*  */
+
+contentButton.addEventListener("click", () => {
+  createModalFeedback(content);
 });
 
 /*  */
@@ -108,6 +128,11 @@ seaFreight.addEventListener("click", () => {
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
 
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
+
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-sea", "modal__right");
   document.querySelector(".modal").append(modalRight);
@@ -151,6 +176,11 @@ railwayFreight.addEventListener("click", () => {
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
 
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
+
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-railway", "modal__right");
   document.querySelector(".modal").append(modalRight);
@@ -161,7 +191,6 @@ airFreight.addEventListener("click", () => {
 
   const modalLeft = document.createElement("div");
   modalLeft.classList.add("modal__left-air", "modal__left");
-  // modalLeft.classList.add("modal__left", "modal__left-air");
   document.querySelector(".modal").append(modalLeft);
 
   const modalLeftTitle = document.createElement("h1");
@@ -207,6 +236,11 @@ airFreight.addEventListener("click", () => {
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
 
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
+
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-air", "modal__right");
   document.querySelector(".modal").append(modalRight);
@@ -250,6 +284,11 @@ roadFreight.addEventListener("click", () => {
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
 
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
+
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-road", "modal__right");
   document.querySelector(".modal").append(modalRight);
@@ -260,7 +299,6 @@ oversizedCargoesTransportation.addEventListener("click", () => {
 
   const modalLeft = document.createElement("div");
   modalLeft.classList.add("modal__left-oversized", "modal__left");
-  // modalLeft.classList.add("modal__left", "modal__left-oversized");
   document.querySelector(".modal").append(modalLeft);
 
   const modalLeftTitle = document.createElement("h1");
@@ -299,6 +337,11 @@ oversizedCargoesTransportation.addEventListener("click", () => {
   modalLeftButton.classList.add("modal__button", "services-button");
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
+
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
 
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-oversized", "modal__right");
@@ -345,6 +388,11 @@ warehousingServices.addEventListener("click", () => {
   modalLeftButton.classList.add("modal__button", "services-button");
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
+
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
 
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-warehousing", "modal__right");
@@ -401,6 +449,11 @@ insurance.addEventListener("click", () => {
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
 
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
+
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-insurance", "modal__right");
   document.querySelector(".modal").append(modalRight);
@@ -446,6 +499,11 @@ foreignEconomicActivity.addEventListener("click", () => {
   modalLeftButton.classList.add("modal__button", "additional-services-button");
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
+
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
 
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-foreign", "modal__right");
@@ -493,6 +551,11 @@ consulting.addEventListener("click", () => {
   modalLeftButton.classList.add("modal__button", "additional-services-button");
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
+
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
 
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-consulting", "modal__right");
@@ -545,6 +608,11 @@ customsClearance.addEventListener("click", () => {
   modalLeftButton.textContent = "Рассчитать стоимость";
   modalLeft.append(modalLeftButton);
 
+  const modalButton = document.querySelector(".modal__button");
+  modalButton.addEventListener("click", () => {
+    createModalFeedback(content);
+  });
+
   const modalRight = document.createElement("div");
   modalRight.classList.add("modal__right-customs", "modal__right");
   document.querySelector(".modal").append(modalRight);
@@ -554,48 +622,48 @@ customsClearance.addEventListener("click", () => {
 /* FOOTER */
 /*  */
 
-const mask = IMask(FooterInputPhone, {
+const mask = IMask(footerInputPhone, {
   mask: "+{7} (000) 000-00-00",
   placeholderChar: "_",
 });
 
 let trueNumber = 0;
 
-FooterInputPhone.addEventListener("click", () => {
+footerInputPhone.addEventListener("click", () => {
   showMask(mask);
 });
 
-FooterInputConfirm.addEventListener("click", () => {
+footerInputConfirm.addEventListener("click", () => {
   if (
-    FooterChexbox.checked &&
-    FooterInputName.value.length &&
-    FooterInputPhone.value.replace(/[_-]/g, "").length === 16
+    footerCheckbox.checked &&
+    footerInputName.value.length &&
+    footerInputPhone.value.replace(/[_-]/g, "").length === 16
   ) {
     alert(
-      `Your Name: ${FooterInputName.value}\nYour Phone Number: ${FooterInputPhone.value}`
+      `Your Name: ${footerInputName.value}\nYour Phone Number: ${footerInputPhone.value}`
     );
     // Для отправки настоящего номера на почту организации
-    trueNumber = createPhoneNumber(FooterInputPhone.value);
+    trueNumber = createPhoneNumber(footerInputPhone.value);
     //
     restoreAllInput();
     hiddenMask(mask);
   } else {
-    if (!FooterInputName.value.length) {
-      FooterInputName.classList.add("add-border");
+    if (!footerInputName.value.length) {
+      footerInputName.classList.add("add-border");
     } else {
-      FooterInputName.classList.remove("add-border");
+      footerInputName.classList.remove("add-border");
     }
 
-    if (FooterInputPhone.value.replace(/[_-]/g, "").length !== 16) {
-      FooterInputPhone.classList.add("add-border");
+    if (footerInputPhone.value.replace(/[_-]/g, "").length !== 16) {
+      footerInputPhone.classList.add("add-border");
     } else {
-      FooterInputPhone.classList.remove("add-border");
+      footerInputPhone.classList.remove("add-border");
     }
 
-    if (!FooterChexbox.checked) {
-      FooterChexbox.parentElement.classList.add("add-border");
+    if (!footerCheckbox.checked) {
+      footerCheckbox.parentElement.classList.add("add-border");
     } else {
-      FooterChexbox.parentElement.classList.remove("add-border");
+      footerCheckbox.parentElement.classList.remove("add-border");
     }
 
     alert("Вы заполнили не все поля, обязательные к заполнению");
@@ -603,10 +671,10 @@ FooterInputConfirm.addEventListener("click", () => {
 });
 
 function restoreAllInput() {
-  FooterInputName.value = "";
-  FooterInputPhone.value = "";
-  FooterChexbox.checked = false;
-  FooterInputName.classList.remove("add-border");
-  FooterInputPhone.classList.remove("add-border");
-  FooterChexbox.parentElement.classList.remove("add-border");
+  footerInputName.value = "";
+  footerInputPhone.value = "";
+  footerCheckbox.checked = false;
+  footerInputName.classList.remove("add-border");
+  footerInputPhone.classList.remove("add-border");
+  footerCheckbox.parentElement.classList.remove("add-border");
 }
