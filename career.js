@@ -1,8 +1,7 @@
 import {
   createModalFeedback,
   createPhoneNumber,
-  hiddenMask,
-  showMask,
+  phoneInputInteraction,
 } from "./utils/utils.js";
 
 /*  */
@@ -56,22 +55,17 @@ transportServices.addEventListener("click", () => {
 /* FOOTER */
 /*  */
 
-const mask = IMask(footerInputPhone, {
-  mask: "+{7} (000) 000-00-00",
-  placeholderChar: "_",
-});
-
 let trueNumber = 0;
 
 footerInputPhone.addEventListener("click", () => {
-  showMask(mask);
+  phoneInputInteraction(footerInputPhone);
 });
 
 footerInputConfirm.addEventListener("click", () => {
   if (
     footerCheckbox.checked &&
     footerInputName.value.length &&
-    footerInputPhone.value.replace(/[_-]/g, "").length === 16
+    footerInputPhone.value.replace(/\D/g, "").length >= 11
   ) {
     alert(
       `Your Name: ${footerInputName.value}\nYour Phone Number: ${footerInputPhone.value}`
@@ -80,7 +74,6 @@ footerInputConfirm.addEventListener("click", () => {
     trueNumber = createPhoneNumber(footerInputPhone.value);
     //
     restoreAllInput();
-    hiddenMask(mask);
   } else {
     if (!footerInputName.value.length) {
       footerInputName.classList.add("add-border");
@@ -88,7 +81,7 @@ footerInputConfirm.addEventListener("click", () => {
       footerInputName.classList.remove("add-border");
     }
 
-    if (footerInputPhone.value.replace(/[_-]/g, "").length !== 16) {
+    if (footerInputPhone.value.replace(/\D/g, "").length < 11) {
       footerInputPhone.classList.add("add-border");
     } else {
       footerInputPhone.classList.remove("add-border");

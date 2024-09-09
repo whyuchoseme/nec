@@ -141,7 +141,8 @@ export function createModalFeedback(divWithContent) {
           class="input-feedback-phone"
           type="tel"
           id="input-feedback-phone"
-          placeholder="+7 (999) 999-99-99"
+          placeholder="x (xxx) xxx-xx-xx"
+          maxlength="18"
         />
       </div>
       <div class="input-feedback-form__email">
@@ -188,15 +189,10 @@ export function createModalFeedback(divWithContent) {
     ".modal-feedback__button"
   );
 
-  const maskFeedback = IMask(feedbackInputPhone, {
-    mask: "+{7} (000) 000-00-00",
-    placeholderChar: "_",
-  });
-
   let trueNumberFeedback = 0;
 
   feedbackInputPhone.addEventListener("click", () => {
-    showMask(maskFeedback);
+    phoneInputInteraction(feedbackInputPhone);
   });
 
   feedbackInputText.addEventListener("focusout", () => {
@@ -207,7 +203,7 @@ export function createModalFeedback(divWithContent) {
     if (
       feedbackCheckbox.checked &&
       feedbackInputName.value.length &&
-      feedbackInputPhone.value.replace(/[_-]/g, "").length === 16 &&
+      feedbackInputPhone.value.replace(/\D/g, "").length >= 11 &&
       feedbackInputEmail.value.length &&
       feedbackInputText.value.length
     ) {
@@ -223,7 +219,6 @@ export function createModalFeedback(divWithContent) {
       trueNumberFeedback = createPhoneNumber(feedbackInputPhone.value);
       //
       restoreAllFeedbackInput();
-      hiddenMask(maskFeedback);
     } else {
       if (!feedbackInputName.value.length) {
         feedbackInputName.classList.add("add-border");
@@ -243,7 +238,7 @@ export function createModalFeedback(divWithContent) {
         feedbackInputText.classList.remove("add-border");
       }
 
-      if (feedbackInputPhone.value.replace(/[_-]/g, "").length !== 16) {
+      if (feedbackInputPhone.value.replace(/\D/g, "").length < 11) {
         feedbackInputPhone.classList.add("add-border");
       } else {
         feedbackInputPhone.classList.remove("add-border");
@@ -364,7 +359,8 @@ export function createModalFeedbackVacancy(divWithContent) {
           class="input-feedback-phone"
           type="tel"
           id="input-feedback-phone"
-          placeholder="+7 (999) 999-99-99"
+          placeholder="x (xxx) xxx-xx-xx"
+          maxlength="18"
         />
       </div>
       <div class="input-feedback-form__email">
@@ -415,15 +411,10 @@ export function createModalFeedbackVacancy(divWithContent) {
     ".modal-feedback__button"
   );
 
-  const maskFeedback = IMask(feedbackInputPhone, {
-    mask: "+{7} (000) 000-00-00",
-    placeholderChar: "_",
-  });
-
   let trueNumberFeedback = 0;
 
   feedbackInputPhone.addEventListener("click", () => {
-    showMask(maskFeedback);
+    phoneInputInteraction(feedbackInputPhone);
   });
 
   feedbackInputText.addEventListener("focusout", () => {
@@ -434,7 +425,7 @@ export function createModalFeedbackVacancy(divWithContent) {
     if (
       feedbackCheckbox.checked &&
       feedbackInputName.value.length &&
-      feedbackInputPhone.value.replace(/[_-]/g, "").length === 16 &&
+      feedbackInputPhone.value.replace(/\D/g, "").length >= 11 &&
       feedbackInputEmail.value.length &&
       feedbackInputText.value.length
     ) {
@@ -450,7 +441,6 @@ export function createModalFeedbackVacancy(divWithContent) {
       trueNumberFeedback = createPhoneNumber(feedbackInputPhone.value);
       //
       restoreAllFeedbackInput();
-      hiddenMask(maskFeedback);
     } else {
       if (!feedbackInputName.value.length) {
         feedbackInputName.classList.add("add-border");
@@ -470,7 +460,7 @@ export function createModalFeedbackVacancy(divWithContent) {
         feedbackInputText.classList.remove("add-border");
       }
 
-      if (feedbackInputPhone.value.replace(/[_-]/g, "").length !== 16) {
+      if (feedbackInputPhone.value.replace(/\D/g, "").length < 11) {
         feedbackInputPhone.classList.add("add-border");
       } else {
         feedbackInputPhone.classList.remove("add-border");
@@ -499,4 +489,101 @@ export function createModalFeedbackVacancy(divWithContent) {
     feedbackInputText.classList.remove("add-border");
     feedbackCheckbox.parentElement.classList.remove("add-border");
   }
+}
+
+export function phoneInputInteraction(inputElement) {
+  function getInputNumbersValue(input) {
+    return input.value.replace(/\D/g, "");
+  }
+
+  function clearInput(e) {
+    let input = e.target,
+      inputNumbersValue = getInputNumbersValue(input);
+
+    if (e.keyCode == 8 && getInputNumbersValue(input).length == 1) {
+      input.value = "";
+    }
+
+    if (e.keyCode == 8 && getInputNumbersValue(input).length == 4) {
+      input.value = inputNumbersValue.substring(0, 4);
+    }
+
+    if (e.keyCode == 8 && getInputNumbersValue(input).length == 7) {
+      input.value = inputNumbersValue.substring(0, 7);
+    }
+
+    if (e.keyCode == 8 && getInputNumbersValue(input).length == 9) {
+      input.value = inputNumbersValue.substring(0, 9);
+    }
+  }
+
+  function onPhoneInput(e) {
+    let input = e.target,
+      inputNumbersValue = getInputNumbersValue(input),
+      selectionStart = input.selectionStart,
+      formattedInputValue = "";
+
+    if (!inputNumbersValue) {
+      return (input.value = "");
+    }
+
+    if (input.value.length != selectionStart) {
+      // Editing in the middle of input, not last symbol
+      if (e.data && /\D/g.test(e.data)) {
+        // Attempt to input non-numeric symbol
+        input.value = inputNumbersValue;
+      }
+      return;
+    }
+
+    if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
+      //russian phone number
+      let firstSymbol = "+7";
+      if (inputNumbersValue[0] == "9")
+        inputNumbersValue = `7${inputNumbersValue}`;
+      if (inputNumbersValue[0] == "7" || inputNumbersValue[0] == "8") {
+        formattedInputValue = `${firstSymbol} (`;
+      }
+
+      if (inputNumbersValue.length >= 1) {
+        formattedInputValue += inputNumbersValue.substring(1, 4);
+      }
+
+      if (inputNumbersValue.length >= 4) {
+        formattedInputValue += ") " + inputNumbersValue.substring(4, 7);
+      }
+
+      if (inputNumbersValue.length >= 7) {
+        formattedInputValue += "-" + inputNumbersValue.substring(7, 9);
+      }
+
+      if (inputNumbersValue.length >= 9) {
+        formattedInputValue += "-" + inputNumbersValue.substring(9, 11);
+      }
+    } else {
+      //other phone number
+      formattedInputValue = `+${inputNumbersValue.substring(0, 16)}`;
+    }
+
+    input.value = formattedInputValue;
+  }
+
+  function onPhonePaste(e) {
+    let input = e.target,
+      inputNumbersValue = getInputNumbersValue(input);
+    let pasted = e.clipboardData || window.clipboardData;
+    if (pasted) {
+      let pastedText = pasted.getData("Text");
+      if (/\D/g.test(pastedText)) {
+        // Attempt to paste non-numeric symbol — remove all non-numeric symbols,
+        // formatting will be in onPhoneInput handler
+        input.value = inputNumbersValue;
+        return;
+      }
+    }
+  }
+
+  inputElement.addEventListener("input", onPhoneInput);
+  inputElement.addEventListener("keydown", clearInput);
+  inputElement.addEventListener("paste", onPhonePaste);
 }
