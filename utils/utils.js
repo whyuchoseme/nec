@@ -172,7 +172,7 @@ export function createModalFeedback(divWithContent) {
 
   const modalLeftParagraph3 = document.createElement("p");
   modalLeftParagraph3.classList.add("modal-feedback__paragraph-confirm");
-  modalLeftParagraph3.innerHTML = `Заполнение Вами данной заявки и её направление нам означают предоставление Вами согласия на обработку Ваших персональных данных в соответствии с <a>Условиями обработки данных на сайте.</a>`;
+  modalLeftParagraph3.innerHTML = `Заполнение Вами данной заявки и её направление нам означают предоставление Вами согласия на обработку Ваших персональных данных в соответствии с <a href="data-processing-terms.html">Условиями обработки данных на сайте.</a>`;
   modalLeft.append(modalLeftParagraph3);
 
   /*  */
@@ -394,7 +394,7 @@ export function createModalFeedbackVacancy(divWithContent) {
 
   const modalLeftParagraph3 = document.createElement("p");
   modalLeftParagraph3.classList.add("modal-feedback__paragraph-confirm");
-  modalLeftParagraph3.innerHTML = `Заполнение Вами данной заявки и её направление нам означают предоставление Вами согласия на обработку Ваших персональных данных в соответствии с <a>Условиями обработки данных на сайте.</a>`;
+  modalLeftParagraph3.innerHTML = `Заполнение Вами данной заявки и её направление нам означают предоставление Вами согласия на обработку Ваших персональных данных в соответствии с <a href="data-processing-terms.html">Условиями обработки данных на сайте.</a>`;
   modalLeft.append(modalLeftParagraph3);
 
   /*  */

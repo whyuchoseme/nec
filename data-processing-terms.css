@@ -217,7 +217,7 @@ textarea {
 .info > h1 {
   width: 760px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding-top: 90px;
   font-size: 42px;
@@ -235,9 +235,52 @@ textarea {
   color: black;
 }
 
+.info > h3 {
+  width: 660px;
+  margin-top: 0.6em;
+  margin-left: 0.8em;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1em;
+  color: black;
+}
+
+.info__first-title {
+  margin-top: 1.3em !important;
+}
+
+.info > h3 > span {
+  display: block;
+}
+
+.info__text {
+  margin-top: 1.5em;
+  text-align: justify;
+}
+
+.info__text > p {
+  margin-left: 1.6em;
+  font-size: 20px;
+  font-weight: 350;
+  line-height: 1.55em;
+}
+
+.info__text > p > span {
+  font-weight: 650;
+}
+
+.info__text > span {
+  display: block;
+  margin-top: 1.5em;
+  margin-left: 1.6em;
+  font-size: 20px;
+  font-weight: 350;
+  line-height: 1.55em;
+}
+
 .info__table {
   width: 100%;
-  margin-top: 3.3em;
+  margin: 2.2em 0 1.5em 0;
   font-size: 18px;
   line-height: 1.5em;
   border-collapse: collapse;
@@ -246,19 +289,26 @@ textarea {
 }
 
 .info__table th {
+  /* min-width: 19.35em; */
   padding: 20px;
-  border-bottom: 1px solid #d9d9d9;
+  border: 1px solid #d9d9d9;
   font-weight: 600;
   color: black;
+  background-color: #eeeeee;
 }
 
 .info__table td {
   padding: 20px;
-  border-bottom: 1px solid #d9d9d9;
+  border: 1px solid #d9d9d9;
+}
+
+.info__table li::marker {
+  font-size: 10px;
 }
 
 .table-data {
   height: 69px;
+  vertical-align: text-top;
 }
 
 .table-data:nth-child(odd) {
@@ -266,28 +316,7 @@ textarea {
 }
 
 .table-data:nth-child(even) {
-  background-color: #ebf9ff;
-}
-
-.info__footnotes {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 3em;
-  margin-bottom: 6.5em;
-}
-
-.info__footnotes > p {
-  width: 572px;
-  font-size: 15px;
-  color: #777;
-  text-align: justify;
-}
-
-.info__footnotes > p:last-child {
-  margin-top: 1.5em;
+  background-color: #eeeeee;
 }
 
 /*  */
@@ -301,6 +330,8 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 5.5em;
+  margin-top: 4em;
   color: #ffff;
   background-color: #0053a1;
 }
@@ -694,11 +725,11 @@ textarea {
 }
 
 /* .input-feedback-name:focus,
-    .input-feedback-phone:focus,
-    .input-feedback-email:focus,
-    .input-feedback-text:focus {
-      outline: 1px solid black;
-    } */
+      .input-feedback-phone:focus,
+      .input-feedback-email:focus,
+      .input-feedback-text:focus {
+        outline: 1px solid black;
+      } */
 
 .input-feedback-text {
   min-height: 102px;
