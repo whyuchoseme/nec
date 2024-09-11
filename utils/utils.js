@@ -375,7 +375,7 @@ export function createModalFeedbackVacancy(divWithContent) {
         <input
           class="input-feedback-text" type="text"
           id="input-feedback-text"
-          placeholder="Ссылка с Вашим резюме"
+          placeholder="Ссылка на Ваше резюме"
         />
       </div>
       <div class="input-feedback-form__checkbox">
