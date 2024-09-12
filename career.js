@@ -30,6 +30,44 @@ const footerInputConfirm = document.querySelector(".input-form__btn");
 /* INTERACTION */
 /*  */
 
+//
+/* ANIMATION FOR OBSERVE */
+const animationFromLeft = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = "from-left 0.7s forwards";
+    }
+  });
+});
+
+const animationFromRight = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = "from-right 0.7s forwards";
+    }
+  });
+});
+
+const animationFromBottom = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = "from-bottom 0.7s forwards";
+    }
+  });
+});
+
+const allFromLeftAnimation = document.querySelectorAll(".animationFromLeft");
+const allFromRightAnimation = document.querySelectorAll(".animationFromRight");
+const allFromBottomAnimation = document.querySelectorAll(
+  ".animationFromBottom"
+);
+
+allFromLeftAnimation.forEach((elem) => animationFromLeft.observe(elem));
+allFromRightAnimation.forEach((elem) => animationFromRight.observe(elem));
+allFromBottomAnimation.forEach((elem) => animationFromBottom.observe(elem));
+/*  */
+//
+
 /*  */
 /* HEADER */
 /*  */

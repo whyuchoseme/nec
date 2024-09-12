@@ -55,6 +55,52 @@ const footerInputConfirm = document.querySelector(".input-form__btn");
 /* INTERACTION */
 /*  */
 
+//
+/* ANIMATION FOR OBSERVE */
+const animationFromLeft = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = "from-left 0.7s forwards";
+    }
+  });
+});
+
+const animationFromRight = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = "from-right 0.7s forwards";
+    }
+  });
+});
+
+const animationFromUpper = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = "from-upper 0.7s forwards";
+    }
+  });
+});
+
+const animationTurnUp = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = "turn-up 1s forwards";
+    }
+  });
+});
+
+const allFromLeftAnimation = document.querySelectorAll(".animationFromLeft");
+const allFromRightAnimation = document.querySelectorAll(".animationFromRight");
+const allFromUpperAnimation = document.querySelectorAll(".animationFromUpper");
+const allTurnUpAnimation = document.querySelectorAll(".animationTurnUp");
+
+allFromLeftAnimation.forEach((elem) => animationFromLeft.observe(elem));
+allFromRightAnimation.forEach((elem) => animationFromRight.observe(elem));
+allFromUpperAnimation.forEach((elem) => animationFromUpper.observe(elem));
+allTurnUpAnimation.forEach((elem) => animationTurnUp.observe(elem));
+/*  */
+//
+
 /*  */
 /* HEADER */
 /*  */

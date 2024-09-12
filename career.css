@@ -639,7 +639,7 @@ textarea {
   border-radius: 10px 13px 13px 10px;
   background-color: #ffff;
   cursor: default;
-  animation: fadeout reverse 0.5s forwards;
+  animation: modal-from-bottom 0.4s forwards;
   z-index: 3;
 }
 
@@ -823,6 +823,42 @@ textarea {
   border: 1px solid red;
 }
 
+@keyframes from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeout {
   0% {
     opacity: 1;
@@ -830,5 +866,17 @@ textarea {
 
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes modal-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
