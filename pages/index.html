@@ -6,6 +6,7 @@
     <title>NEC</title>
     <link rel="shortcut icon" href="../img/nec-logo.svg" />
     <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../adapt-index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -132,13 +133,16 @@
         </div>
         <div class="content__about about" id="about">
           <div class="about__upper upper">
-            <div class="upper__left animationFromLeft"></div>
+            <div class="upper__left animationFromLeft">
+              <!-- <img class="logo-about-svg" src="../img/logo-about.svg" alt="logo"> -->
+            </div>
             <div class="upper__right animationFromRight">
               <p>
                 <span>NEC – 3PL оператор,</span> оказывающий все виды
                 транспортных услуг, складское хранение и таможенное оформление
-                грузов. Мы более 10 лет работаем на российском рынке и являемся
-                официальным агентом международной логистической компании
+                грузов. Мы более 10 лет работаем на российском рынке и
+                являемся официальным агентом международной логистической
+                компании
                 <a href="https://www.mumnet.com/" target="_blank"
                   >Militzer & Munch (M&M)</a
                 >
@@ -149,22 +153,58 @@
                 >
                   Логистическая сеть M&M</a
                 >
-                была основана в 1880 году и насчитывает около 100 подразделений
-                в 32 странах мира. NEC и M&M входят в состав частного
-                швейцарского транспортного холдинга
+                была основана в 1880 году и насчитывает около 100
+                подразделений в 32 странах мира. NEC и M&M входят в состав
+                частного швейцарского транспортного холдинга
                 <a href="https://www.transinvest.ch/home/" target="_blank"
                   >TRANSINVEST</a
                 >, объединяющего около 120 различных компаний.
               </p>
               <p style="color: #0053a1; font-weight: 700">
                 Оказываем услуги с использованием любых типов транспорта, а
-                также услуги хранения и складской обработки товаров. Мы работаем
-                с широким спектром грузовой номенклатуры и имеем глубокую
-                экспертизу в логистических решениях для таких индустрий как
-                электроника и ИТ оборудование, легкая и тяжелая промышленность,
-                энергетика, автомобилестроение (включая перевозку готовых
-                автомобилей и запчастей), ритейл и другие.
+                также услуги хранения и складской обработки товаров. Мы
+                работаем с широким спектром грузовой номенклатуры и имеем
+                глубокую экспертизу в логистических решениях для таких
+                индустрий как электроника и ИТ оборудование, легкая и тяжелая
+                промышленность, энергетика, автомобилестроение (включая
+                перевозку готовых автомобилей и запчастей), ритейл и другие.
               </p>
+              <!-- <div class="test-grid1">
+                <p>
+                  <span>NEC – 3PL оператор,</span> оказывающий все виды
+                  транспортных услуг, складское хранение и таможенное оформление
+                  грузов. Мы более 10 лет работаем на российском рынке и
+                  являемся официальным агентом международной логистической
+                  компании
+                  <a href="https://www.mumnet.com/" target="_blank"
+                    >Militzer & Munch (M&M)</a
+                  >
+                  на территории России.
+                  <a
+                    href="https://www.mumnet.com/ru/%D0%BC%D0%B5%D1%81%D1%82%D0%B0"
+                    target="_blank"
+                  >
+                    Логистическая сеть M&M</a
+                  >
+                  была основана в 1880 году и насчитывает около 100
+                  подразделений в 32 странах мира. NEC и M&M входят в состав
+                  частного швейцарского транспортного холдинга
+                  <a href="https://www.transinvest.ch/home/" target="_blank"
+                    >TRANSINVEST</a
+                  >, объединяющего около 120 различных компаний.
+                </p>
+              </div>
+              <div class="test-grid2">
+                <p style="color: #0053a1; font-weight: 700">
+                  Оказываем услуги с использованием любых типов транспорта, а
+                  также услуги хранения и складской обработки товаров. Мы
+                  работаем с широким спектром грузовой номенклатуры и имеем
+                  глубокую экспертизу в логистических решениях для таких
+                  индустрий как электроника и ИТ оборудование, легкая и тяжелая
+                  промышленность, энергетика, автомобилестроение (включая
+                  перевозку готовых автомобилей и запчастей), ритейл и другие.
+                </p>
+              </div> -->
             </div>
           </div>
           <div class="about__down down">
@@ -190,10 +230,12 @@
           <div class="services__info info-services">
             <h2>Услуги компании</h2>
             <h3 class="animationFromLeft">
-              Реализуем для своих клиентов
-              <span>полный цикл логистических услуг</span> от двери до двери.
+              <p>
+                Реализуем для своих клиентов
+                <span>полный цикл логистических услуг</span> от двери до двери.
+              </p>
             </h3>
-            <div class="services__set">
+            <div class="services__set set">
               <button class="services__sea-freight set-btn">
                 <p>Морские перевозки</p>
                 <img
@@ -254,14 +296,17 @@
           <div class="additional-services__info info-additional">
             <h2>Дополнительные сервисы</h2>
             <h3 class="animationFromLeft">
-              Как ваш логистический провайдер полного цикла также организовываем
-              <span class="info-additional__emphasis">
-                дополнительные сервисы,
-              </span>
-              связанные с перевозками и внешнеэкономической деятельностью.
-              <span class="info-additional__paragraph">
-                Делаем логистику понятной и прозрачной.
-              </span>
+              <p>
+                Как ваш логистический провайдер полного цикла также
+                организовываем
+                <span class="info-additional__emphasis">
+                  дополнительные сервисы,
+                </span>
+                связанные с перевозками и внешнеэкономической деятельностью.
+                <span class="info-additional__paragraph">
+                  Делаем логистику понятной и прозрачной.
+                </span>
+              </p>
             </h3>
             <div class="info-additional__cards cards">
               <button class="cards__insurance cards-btn">
@@ -302,14 +347,16 @@
         <div class="content__contact contact" id="contact">
           <div class="contact__info info-contact">
             <h2>Где находимся?</h2>
-            <div class="info-contact__addresses addresses ">
+            <div class="info-contact__addresses addresses">
               <div class="addresses__msk address-card animationFromBottom">
                 <h3>
                   <span>Офис в Москве</span>
                   119049, Москва, 4-й Добрынинский пер., 8, офис С12-03
                 </h3>
               </div>
-              <div class="addresses__warehouse address-card animationFromBottom">
+              <div
+                class="addresses__warehouse address-card animationFromBottom"
+              >
                 <h3>
                   <span>Склад</span>
                   141580, Московская область, г.о. Химки, Территория Свободной
@@ -323,7 +370,7 @@
                 </h3>
               </div>
             </div>
-            <div class="info-contact__maps ">
+            <div class="info-contact__maps maps">
               <div class="maps__msk animationFromBottom">
                 <img class="item-map" src="../img/map.jpg" alt="" />
               </div>
@@ -340,23 +387,22 @@
       <footer class="footer">
         <div class="footer__upper upper-footer">
           <div class="upper-footer__left">
-            <p>
-              <img
-                class="logo-footer-svg"
-                src="https://static.tildacdn.com/tild6330-6666-4530-a461-373734626135/logo-wh.svg"
-                alt="logo"
-              />
-              <span class="upper-footer__title-left">ООО «НЭК»</span>
-              <span>ОГРН 5137746006943</span>
-              <span>ИНН/КПП 7708799792/504401001</span>
-              <span>
-                Адрес регистрации: 141580 Московская область, г.о. Химки,
-                Территория Свободной Экономической Зоны Шерризон, стр.5/1
-              </span>
-              <span>
-                Регистрационный номер 1580 в реестре таможенных представителей.
-              </span>
-            </p>
+            <div class="upper-footer__info">
+              <div class="upper-footer__img"></div>
+              <p>
+                <span class="upper-footer__title-left">ООО «НЭК»</span>
+                <span>ОГРН 5137746006943</span>
+                <span>ИНН/КПП 7708799792/504401001</span>
+                <span>
+                  Адрес регистрации: 141580 Московская область, г.о. Химки,
+                  Территория Свободной Экономической Зоны Шерризон, стр.5/1
+                </span>
+                <span>
+                  Регистрационный номер 1580 в реестре таможенных
+                  представителей.
+                </span>
+              </p>
+            </div>
           </div>
           <div class="upper-footer__center">
             <p>
